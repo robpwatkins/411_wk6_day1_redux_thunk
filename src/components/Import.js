@@ -1,7 +1,22 @@
 import React from 'react'
-import { Button, Table, TableHead, TableRow, TableCell, TableBody, Container } from '@material-ui/core'
+import { Button, Table, TableHead, TableRow, TableCell, TableBody, Container, Menu, MenuItem, IconButton } from '@material-ui/core'
+import { MoreVert } from '@material-ui/icons'
+
+const option = 'delete';
+
+// const ITEM_HEIGHT = 5;
 
 const Import = (props) => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    }
 
     return (
         <Container style={{textAlign: "center"}}>
@@ -26,6 +41,23 @@ const Import = (props) => {
                             <TableRow key={index}>
                                 <TableCell>{make.MakeId}</TableCell>
                                 <TableCell>{make.MakeName}</TableCell>
+                                <IconButton
+                                    aria-lable="delete"
+                                    aria-haspopup="true"
+                                    onClick={handleClick}
+                                >
+                                    <MoreVert />
+                                </IconButton>
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    keepMounted
+                                    open={open}
+                                    onClose={handleClose}
+                                    >
+                                        <MenuItem onClick={handleClose}>
+                                            {option}
+                                        </MenuItem>
+                                    </Menu>
                             </TableRow>
                         )
                     })}
