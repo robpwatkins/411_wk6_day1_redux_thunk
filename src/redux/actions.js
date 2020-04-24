@@ -29,14 +29,4 @@ export const fetchMakes = () => {
     }
 }
 
-export const deleteMake = (index) => {
-    return {
-        type: 'DELETE_MAKE',
-        value: index
-    }
-}
-
-export default {
-    fetchMakes, 
-    deletemake
-};
+export default fetchMakes;

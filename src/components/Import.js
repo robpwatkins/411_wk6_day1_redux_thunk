@@ -1,8 +1,9 @@
 import React from 'react'
 import { Button, Table, TableHead, TableRow, TableCell, TableBody, Container, Menu, MenuItem, IconButton } from '@material-ui/core'
-import { MoreVert } from '@material-ui/icons'
+// import { MoreVert } from '@material-ui/icons'
+import DeleteIcon from '@material-ui/icons/Delete'
 
-const option = 'delete';
+// const option = 'delete';
 
 // const ITEM_HEIGHT = 5;
 
@@ -46,18 +47,18 @@ const Import = (props) => {
                                     aria-haspopup="true"
                                     onClick={handleClick}
                                 >
-                                    <MoreVert />
+                                    <DeleteIcon color="secondary"/>
                                 </IconButton>
-                                <Menu
+                                {/* <Menu
                                     anchorEl={anchorEl}
                                     keepMounted
                                     open={open}
                                     onClose={handleClose}
                                     >
                                         <MenuItem onClick={handleClose}>
-                                            {option}
+                                            delete
                                         </MenuItem>
-                                    </Menu>
+                                    </Menu> */}
                             </TableRow>
                         )
                     })}
