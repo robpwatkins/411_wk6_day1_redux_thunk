@@ -1,33 +1,20 @@
 import React from 'react'
-import { Button, Table, TableHead, TableRow, TableCell, TableBody, Container, Menu, MenuItem, IconButton } from '@material-ui/core'
+import { Button, Table, TableHead, TableRow, TableCell, TableBody, Container, IconButton } from '@material-ui/core'
 // import { MoreVert } from '@material-ui/icons'
 import DeleteIcon from '@material-ui/icons/Delete'
 
-// const option = 'delete';
-
-// const ITEM_HEIGHT = 5;
-
 const Import = (props) => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    }
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    }
 
     return (
-        <Container style={{textAlign: "center"}}>
+        <Container style={{padding: "25px 45px 45px 45px"}}>
             <Button
                 onClick={props.fetchMakes}
                 variant="contained"
                 color="primary"
                 style={{marginTop: "25px"}}
-                >Click ME!
+                >Import!
             </Button>
+            <h2>Count: {props.makes.length}</h2>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -42,23 +29,11 @@ const Import = (props) => {
                             <TableRow key={index}>
                                 <TableCell>{make.MakeId}</TableCell>
                                 <TableCell>{make.MakeName}</TableCell>
-                                <IconButton
-                                    aria-lable="delete"
-                                    aria-haspopup="true"
-                                    onClick={handleClick}
-                                >
-                                    <DeleteIcon color="secondary"/>
-                                </IconButton>
-                                {/* <Menu
-                                    anchorEl={anchorEl}
-                                    keepMounted
-                                    open={open}
-                                    onClose={handleClose}
-                                    >
-                                        <MenuItem onClick={handleClose}>
-                                            delete
-                                        </MenuItem>
-                                    </Menu> */}
+                                <TableCell>
+                                    <IconButton onClick={() => props.deleteMakes(index)}>
+                                        <DeleteIcon color="secondary"/>
+                                    </IconButton>
+                                </TableCell>
                             </TableRow>
                         )
                     })}

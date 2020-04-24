@@ -19,7 +19,6 @@ export const fetchMakes = () => {
         fetch(url)
             .then(res => res.json())
             .then(response => {
-                // console.log(response.Results.map(make => make.MakeName))
                 const action = {
                     type: 'FETCH_MAKES',
                     value: response.Results
@@ -29,4 +28,9 @@ export const fetchMakes = () => {
     }
 }
 
-export default fetchMakes;
+export const deleteMake = (index) => {
+    return {
+        type: 'DELETE_MAKE',
+        value: index
+    }
+}
